@@ -29,7 +29,8 @@ def reset()
 end
 
 def update_measures(measures_dir)
-         
+  measures_dir = File.absolute_path(measures_dir)
+  
   result = []
          
   begin
@@ -47,7 +48,9 @@ end
 
 
 def compute_arguments(measure_dir, osm_path = nil)
-
+  measure_dir = File.absolute_path(measure_dir)
+  osm_path = File.absolute_path(osm_path) if osm_path
+  
   result = {}
   
   begin
@@ -64,7 +67,8 @@ def compute_arguments(measure_dir, osm_path = nil)
 end
 
 def create_measure(measure_dir, name, class_name, taxonomy_tag, measure_type, description, modeler_description)
-         
+  measure_dir = File.absolute_path(measure_dir)
+  
   result = {}
   
   begin
@@ -81,7 +85,9 @@ def create_measure(measure_dir, name, class_name, taxonomy_tag, measure_type, de
 end
 
 def duplicate_measure(old_measure_dir, measure_dir, name, class_name, taxonomy_tag, measure_type, description, modeler_description)
-
+  old_measure_dir = File.absolute_path(old_measure_dir)
+  measure_dir = File.absolute_path(measure_dir)
+  
   result = {}       
   
   begin
